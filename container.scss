@@ -1,0 +1,57 @@
+@import "../../../../../../css/variables";
+
+:local {
+    .wrapper {
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .link {
+        display: inline-block;
+        padding: 5px;
+        position: absolute;
+        background: none;
+        border: none;
+        color: var(--color-mine-shaft);
+        text-decoration: underline;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        left: 152px;
+        bottom: 22px;
+        transition: bottom 300ms;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-right: 1px solid var(--color-mine-shaft);
+            border-bottom: 1px solid var(--color-mine-shaft);
+            transform: translateY(-2px) rotate(45deg);
+            transition: transform 300ms;
+            margin-left: 5px;
+        }
+
+        &.active {
+            bottom: 5px;
+
+            &::after {
+                transform: translateY(0) rotate(225deg);
+            }
+        }
+
+        @media (--sm-viewport) {
+            font-size: 12px;
+        }
+
+        @media (--md-viewport) {
+            left: 156px;
+        }
+
+        @media (--lg-viewport) {
+            left: 165px;
+            bottom: 24px;
+        }
+    }
+}
